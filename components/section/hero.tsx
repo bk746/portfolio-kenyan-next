@@ -19,33 +19,35 @@ export default function Hero() {
         className="absolute inset-0 z-[1] bg-black/35"
         aria-hidden
       />
-      <div className="relative z-10 flex h-full w-full flex-col items-center gap-6 pt-60 text-center sm:text-left">
-        <h1
-          className="text-8xl font-bold text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.5),0_0_24px_rgba(0,0,0,0.3)]"
-        >
-          Keryan <span className="text-white">Bouzerda</span>
-        </h1>
-        <div className="flex items-center gap-3">
-          <div className="h-1 w-9 rounded-full bg-blue-700 shadow-[0_2px_8px_rgba(0,0,0,0.4)]" />
-          <h2
-            className="text-3xl font-bold text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.5),0_0_20px_rgba(0,0,0,0.3)]"
+      <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-4 pt-16 sm:px-6 sm:pt-0 md:items-center md:gap-6 md:pt-60">
+        <div className="flex max-w-full flex-col items-center gap-4 text-center sm:gap-6">
+          <h1
+            className="text-4xl font-bold leading-tight text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.5),0_0_24px_rgba(0,0,0,0.3)] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
           >
-            Développeur web full stack
-          </h2>
-        </div>
-        <div className="mt-11 flex gap-6">
-          <button
-            type="button"
-            className="cursor-pointer rounded-full bg-blue-700 px-8 py-3 text-2xl text-white shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out hover:bg-blue-800"
-          >
-            Me contacter
-          </button>
-          <button
-            type="button"
-            className="cursor-pointer rounded-full border border-white bg- px-8 py-3 text-2xl text-white shadow-[0_4px_20px_rgba(0,0,0,0.3)] transition-all duration-300 ease-out hover:border-blue-700 hover:bg-blue-700 hover:text-white"
-          >
-            Mes réalisations
-          </button>
+            Keryan <span className="text-white">Bouzerda</span>
+          </h1>
+          <div className="flex items-center justify-center gap-3">
+            <div className="h-1 w-9 rounded-full bg-blue-700 shadow-[0_2px_8px_rgba(0,0,0,0.4)]" />
+            <h2
+              className="text-lg font-bold text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.5),0_0_20px_rgba(0,0,0,0.3)] sm:text-xl md:text-2xl lg:text-3xl"
+            >
+              Développeur web full stack
+            </h2>
+          </div>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:gap-6 sm:mt-11">
+            <button
+              type="button"
+              className="cursor-pointer rounded-full bg-blue-700 px-6 py-2.5 text-base text-white shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out hover:bg-blue-800 sm:px-8 sm:py-3 sm:text-xl"
+            >
+              Me contacter
+            </button>
+            <button
+              type="button"
+              className="cursor-pointer whitespace-nowrap rounded-full border border-white bg-transparent px-6 py-2.5 text-base text-white shadow-[0_4px_20px_rgba(0,0,0,0.3)] transition-all duration-300 ease-out hover:border-blue-700 hover:bg-blue-700 sm:px-8 sm:py-3 sm:text-xl"
+            >
+              Mes réalisations
+            </button>
+          </div>
         </div>
       </div>
     </section>
