@@ -86,7 +86,7 @@ export default function Projet() {
           {PROJETS.map((projet, index) => (
             <article
               key={index}
-              className={`group relative overflow-hidden rounded-[5px] sm:rounded-none border-0 ${projet.bgClass} min-h-80 sm:min-h-95 md:min-h-105 flex flex-col text-center shadow-lg hover:shadow-2xl transition-all duration-500 ease-out hover:-translate-y-1 focus-within:ring-2 focus-within:ring-[#0073DE] focus-within:ring-offset-4 focus-within:ring-offset-[#F1ECED]`}
+              className={`group relative overflow-hidden rounded-none border-0 ${projet.bgClass} min-h-80 sm:min-h-95 md:min-h-105 flex flex-col text-center shadow-lg hover:shadow-2xl transition-all duration-500 ease-out hover:-translate-y-1 focus-within:ring-2 focus-within:ring-[#0073DE] focus-within:ring-offset-4 focus-within:ring-offset-[#F1ECED]`}
             >
               <div className="relative z-10 shrink-0 flex flex-col items-center gap-3 px-0 py-6 text-center sm:p-8">
                 <h4 className="text-lg sm:text-xl font-bold tracking-tight leading-tight text-white">
