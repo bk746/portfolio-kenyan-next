@@ -72,23 +72,23 @@ export default function Projet() {
   return (
     <section
       id="realisations"
-      className="w-full overflow-hidden bg-black scroll-mt-20"
+      className="w-full overflow-hidden bg-white md:bg-black scroll-mt-20"
       aria-labelledby="projets-heading"
     >
-      <div className="section-inner w-full bg-black">
+      <div className="section-inner w-full bg-white md:bg-black">
         <header className="section-header">
-          <h2 id="projets-heading" className="section-heading font-semibold text-white">
+          <h2 id="projets-heading" className="section-heading font-semibold text-black md:text-white">
             Réalisation
           </h2>
           <h3 className="section-subheading">Projets sélectionnés</h3>
         </header>
-        <div className="grid w-full grid-cols-1 md:grid-cols-2 gap-3">
+        <div className="grid w-full grid-cols-1 gap-3 md:grid-cols-2">
           {PROJETS.map((projet, index) => (
             <article
               key={index}
-              className={`group relative overflow-hidden rounded-[5px] sm:rounded-none border border-neutral-300 sm:border-0 ${projet.bgClass} min-h-80 sm:min-h-95 md:min-h-105 flex flex-col text-center shadow-lg hover:shadow-2xl transition-all duration-500 ease-out hover:-translate-y-1 focus-within:ring-2 focus-within:ring-[#0073DE] focus-within:ring-offset-4 focus-within:ring-offset-[#F1ECED]`}
+              className={`group relative overflow-hidden rounded-[5px] sm:rounded-none border-0 ${projet.bgClass} min-h-80 sm:min-h-95 md:min-h-105 flex flex-col text-center shadow-lg hover:shadow-2xl transition-all duration-500 ease-out hover:-translate-y-1 focus-within:ring-2 focus-within:ring-[#0073DE] focus-within:ring-offset-4 focus-within:ring-offset-[#F1ECED]`}
             >
-              <div className="relative z-10 shrink-0 flex flex-col items-center gap-3 p-6 text-center sm:p-8">
+              <div className="relative z-10 shrink-0 flex flex-col items-center gap-3 px-0 py-6 text-center sm:p-8">
                 <h4 className="text-lg sm:text-xl font-bold tracking-tight leading-tight text-white">
                   {projet.titre}
                 </h4>
