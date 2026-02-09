@@ -75,14 +75,14 @@ export default function Projet() {
       className="w-full overflow-hidden bg-white md:bg-black scroll-mt-20"
       aria-labelledby="projets-heading"
     >
-      <div className="section-inner w-full bg-white md:bg-black">
-        <header className="section-header">
+      <div className="section-inner w-full bg-white px-0 py-16 md:bg-black md:px-12 md:py-24">
+        <header className="section-header px-5 md:px-0">
           <h2 id="projets-heading" className="section-heading font-semibold text-black md:text-white">
             Réalisation
           </h2>
           <h3 className="section-subheading">Projets sélectionnés</h3>
         </header>
-        <div className="grid w-full grid-cols-1 gap-3 md:grid-cols-2">
+        <div className="grid w-full grid-cols-1 gap-3 md:grid-cols-2 md:px-0">
           {PROJETS.map((projet, index) => (
             <article
               key={index}
