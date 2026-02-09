@@ -3,12 +3,22 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --brand: #0073DE;
+  --brand-dark: #005bb5;
+  --accent: #FF6723;
+  --surface: #F1ECED;
+  --surface-alt: #EAE9EF;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-blue-500: #3b82f6;
+  --color-red-500: #ef4444;
+  --color-brand: var(--brand);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
 }
 
@@ -19,8 +29,47 @@
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+}
+
+/* Section spacing: mobile-first 4rem/1.25rem, md 6rem/3rem */
+@layer components {
+  .section-inner {
+    @apply py-16 px-5 md:py-24 md:px-12;
+  }
+  .section-container {
+    @apply max-w-6xl mx-auto;
+  }
+  .section-container-narrow {
+    @apply max-w-3xl mx-auto;
+  }
+  .section-heading {
+    @apply text-3xl font-medium text-black tracking-tight sm:text-4xl md:text-5xl;
+  }
+  .section-subheading {
+    @apply text-xl font-medium text-blue-700 sm:text-2xl;
+  }
+  .section-header {
+    @apply flex flex-col items-center gap-2 text-center mb-8 sm:mb-12 md:mb-14;
+  }
+}
+
+@keyframes skills-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.skills-enter {
+  animation: skills-enter 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
