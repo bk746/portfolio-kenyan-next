@@ -35,18 +35,18 @@ export default function Hero() {
             </h2>
           </div>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:gap-6 sm:mt-11">
-            <button
-              type="button"
-              className="cursor-pointer rounded-full bg-blue-700 px-6 py-2.5 text-base text-white shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out hover:bg-blue-800 sm:px-8 sm:py-3 sm:text-xl"
+            <a
+              href="#contact"
+              className="cursor-pointer rounded-full bg-blue-700 px-6 py-2.5 text-center text-base text-white shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out hover:bg-blue-800 sm:px-8 sm:py-3 sm:text-xl"
             >
               Me contacter
-            </button>
-            <button
-              type="button"
-              className="cursor-pointer whitespace-nowrap rounded-full border border-white bg-transparent px-6 py-2.5 text-base text-white shadow-[0_4px_20px_rgba(0,0,0,0.3)] transition-all duration-300 ease-out hover:border-blue-700 hover:bg-blue-700 sm:px-8 sm:py-3 sm:text-xl"
+            </a>
+            <a
+              href="#realisations"
+              className="cursor-pointer whitespace-nowrap rounded-full border border-white bg-transparent px-6 py-2.5 text-center text-base text-white shadow-[0_4px_20px_rgba(0,0,0,0.3)] transition-all duration-300 ease-out hover:border-blue-700 hover:bg-blue-700 sm:px-8 sm:py-3 sm:text-xl"
             >
               Mes réalisations
-            </button>
+            </a>
           </div>
         </div>
       </div>
