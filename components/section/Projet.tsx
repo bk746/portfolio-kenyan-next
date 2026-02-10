@@ -80,6 +80,13 @@ export default function Projet() {
 
   const handleCardTouchEnd = (e: React.TouchEvent, index: number) => {
     if (typeof window === "undefined" || window.innerWidth >= 768) return;
+
+    const el = e.target as HTMLElement;
+    // Si on touche le bouton / lien « Ouvrir », on laisse le navigateur gérer le clic (navigation)
+    if (el.closest("a") || el.closest("button")) {
+      return;
+    }
+
     e.preventDefault();
     setActiveIndex((current) => (current === index ? null : index));
   };
