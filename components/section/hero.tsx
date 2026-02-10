@@ -6,11 +6,20 @@ export default function Hero() {
     <section id="accueil" className="relative h-screen w-full overflow-hidden bg-black">
       <div className="absolute inset-0 z-0 min-h-full min-w-full">
         <iframe
-          className="absolute left-1/2 top-1/2 h-[56.25vw] min-h-[100vh] min-w-[177.78vh] w-[177.78vh] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+          className="absolute left-1/2 top-1/2 h-[56.25vw] min-h-[100vh] min-w-[177.78vh] w-[177.78vh] -translate-x-1/2 -translate-y-1/2 pointer-events-none hidden md:block"
           src={YOUTUBE_EMBED_URL}
           title="Vidéo de fond"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
+          aria-hidden
+        />
+        <video
+          className="absolute left-1/2 top-1/2 h-[56.25vw] min-h-[100vh] min-w-[177.78vh] w-[177.78vh] -translate-x-1/2 -translate-y-1/2 object-cover md:hidden"
+          src="/bg-animate-mobile.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
           aria-hidden
         />
       </div>
