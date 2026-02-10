@@ -38,6 +38,7 @@ const PROJETS = [
     bgClass: "bg-black",
     titreClass: "text-[#0073DE]",
     sousTitreClass: "text-white",
+    lien: "https://dashboard-next-zcf5.vercel.app/",
   },
   {
     titre: "Site vitrine next.js wp headless",
@@ -122,17 +123,33 @@ export default function Projet() {
               </div>
 
               <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-linear-to-t from-black/80 via-black/40 to-black/20 opacity-0 transition-opacity duration-300 group-hover:pointer-events-auto group-hover:opacity-100">
-                <button
-                  type="button"
-                  className="bg-[#0073DE] px-6 py-3 font-semibold text-white shadow-xl transition-all duration-200 hover:bg-[#005bb5] active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent sm:px-8 sm:py-3.5"
-                >
-                  <span className="flex items-center gap-2">
-                    Ouvrir
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </span>
-                </button>
+                {"lien" in projet && projet.lien ? (
+                  <a
+                    href={projet.lien}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-[#0073DE] px-6 py-3 font-semibold text-white shadow-xl transition-all duration-200 hover:bg-[#005bb5] active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent sm:px-8 sm:py-3.5 inline-flex items-center justify-center rounded"
+                  >
+                    <span className="flex items-center gap-2">
+                      Ouvrir
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </span>
+                  </a>
+                ) : (
+                  <button
+                    type="button"
+                    className="bg-[#0073DE] px-6 py-3 font-semibold text-white shadow-xl transition-all duration-200 hover:bg-[#005bb5] active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent sm:px-8 sm:py-3.5"
+                  >
+                    <span className="flex items-center gap-2">
+                      Ouvrir
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </span>
+                  </button>
+                )}
               </div>
             </article>
           ))}
