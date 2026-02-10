@@ -32,7 +32,7 @@ export default function Navbar() {
   const closeMenu = () => setIsMenuOpen(false);
 
   const navBg = isScrolled ? "bg-white" : "bg-black";
-  const navLinkClass = `text-xl font-medium transition-all duration-300 ease-out ${
+  const navLinkClass = `text-xl font-medium transition-all duration-300 ease-out active:scale-95 ${
     isScrolled ? "text-black hover:text-blue-500" : "text-white hover:text-blue-400"
   }`;
   const logoClass = isScrolled ? "text-black" : "text-white";
@@ -97,7 +97,7 @@ export default function Navbar() {
             <a
               key={href}
               href={href}
-              className="text-xl sm:text-2xl font-medium text-black hover:text-blue-500 transition-colors py-2"
+              className="text-xl sm:text-2xl font-medium text-black hover:text-blue-500 transition-all duration-200 active:scale-95 py-2"
               onClick={closeMenu}
             >
               {label}
@@ -105,7 +105,7 @@ export default function Navbar() {
           ))}
           <a
             href="#contact"
-            className="rounded-full bg-blue-500 px-6 py-3 text-lg font-semibold text-white hover:bg-blue-600 transition-colors mt-2"
+            className="rounded-full bg-blue-500 px-6 py-3 text-lg font-semibold text-white hover:bg-blue-600 transition-all duration-200 active:scale-95 mt-2"
             onClick={closeMenu}
           >
             Contact

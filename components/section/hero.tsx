@@ -46,13 +46,13 @@ export default function Hero() {
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:gap-6 sm:mt-11">
             <a
               href="#contact"
-              className="cursor-pointer rounded-full bg-blue-700 px-8 py-2.5 text-center text-base text-white shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out hover:bg-blue-800 sm:px-10 sm:py-3 sm:text-xl"
+              className="cursor-pointer rounded-full bg-blue-700 px-8 py-2.5 text-center text-base text-white shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out hover:bg-blue-800 active:scale-95 sm:px-10 sm:py-3 sm:text-xl"
             >
               Me contacter
             </a>
             <a
               href="#realisations"
-              className="cursor-pointer whitespace-nowrap rounded-full border border-white bg-transparent px-8 py-2.5 text-center text-base text-white shadow-[0_4px_20px_rgba(0,0,0,0.3)] transition-all duration-300 ease-out hover:border-blue-700 hover:bg-blue-700 sm:px-10 sm:py-3 sm:text-xl"
+              className="cursor-pointer whitespace-nowrap rounded-full border border-white bg-transparent px-8 py-2.5 text-center text-base text-white shadow-[0_4px_20px_rgba(0,0,0,0.3)] transition-all duration-300 ease-out hover:border-blue-700 hover:bg-blue-700 active:scale-95 sm:px-10 sm:py-3 sm:text-xl"
             >
               Mes réalisations
             </a>
