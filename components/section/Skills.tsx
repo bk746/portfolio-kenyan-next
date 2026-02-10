@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { FaGithub, FaCode, FaFigma, FaMousePointer } from "react-icons/fa";
 import {
   siHtml5,
   siCss,
@@ -12,16 +13,15 @@ import {
   siNodedotjs,
   siExpress,
   siMongodb,
-  siNpm,
+  siPython,
   siVercel,
-  siApple,
 } from "simple-icons";
 import type { SimpleIcon } from "simple-icons";
 
 type TabId = "frontend" | "backend" | "outils";
 
 type SkillRow = {
-  iconKey: keyof typeof ICONS | "git" | "vscode";
+  iconKey: keyof typeof ICONS | "git" | "vscode" | "cursor";
   name: string;
   detail: string;
   level: "Avancé" | "Intermédiaire" | "Débutant";
@@ -39,9 +39,8 @@ const ICONS: Record<string, SimpleIcon> = {
   nodedotjs: siNodedotjs,
   express: siExpress,
   mongodb: siMongodb,
-  npm: siNpm,
+  python: siPython,
   vercel: siVercel,
-  apple: siApple,
 };
 
 const LEVEL_COLOR: Record<SkillRow["level"], string> = {
@@ -72,6 +71,7 @@ const SKILLS: Record<TabId, { titre: string; items: SkillRow[] }> = {
     titre: "Back-end",
     items: [
       { iconKey: "nodedotjs", name: "Node.js", detail: "logique serveur, bases", level: "Intermédiaire" },
+      { iconKey: "python", name: "Python", detail: "scripts, bases du langage", level: "Intermédiaire" },
       { iconKey: "express", name: "API REST", detail: "routes, requêtes, réponses", level: "Intermédiaire" },
       { iconKey: "mongodb", name: "Bases de données", detail: "concepts, CRUD de base", level: "Débutant" },
     ],
@@ -81,10 +81,9 @@ const SKILLS: Record<TabId, { titre: string; items: SkillRow[] }> = {
     items: [
       { iconKey: "git", name: "Git / GitHub", detail: "commit, push, branches simples", level: "Intermédiaire" },
       { iconKey: "vscode", name: "VS Code", detail: "workflow quotidien", level: "Avancé" },
-      { iconKey: "npm", name: "npm / yarn", detail: "", level: "Intermédiaire" },
+      { iconKey: "cursor", name: "Cursor", detail: "pair programming IA, refactor, génération de code", level: "Intermédiaire" },
       { iconKey: "figma", name: "Figma", detail: "lecture de maquettes, structure", level: "Intermédiaire", light: true },
       { iconKey: "vercel", name: "Vercel", detail: "déploiement Next.js", level: "Intermédiaire" },
-      { iconKey: "apple", name: "iMovie / montage vidéo", detail: "vidéo portfolio, exports propres", level: "Intermédiaire" },
     ],
   },
 };
@@ -94,10 +93,8 @@ function SkillIcon({ iconKey, light }: { iconKey: SkillRow["iconKey"]; light?: b
 
   if (iconKey === "git") {
     return (
-      <div className={iconBox} style={{ backgroundColor: "#F05032" }} title="Git">
-        <svg viewBox="0 0 24 24" className="w-full h-full" fill="white" xmlns="http://www.w3.org/2000/svg">
-          <path d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.223 1.383-.066 1.9.45.516.515.673 1.254.45 1.9l2.66 2.66c.922-.326 1.776-.157 2.43.496.653.653.822 1.508.496 2.43l2.66 2.66c.646-.223 1.385-.067 1.9.45.515.515.672 1.255.45 1.9l2.627 2.627c.603.604.603 1.582 0 2.188l-9.478 9.478c-.604.604-1.582.604-2.188 0l-9.478-9.478c-.604-.606-.604-1.584 0-2.188l2.627-2.627-2.66-2.66c-.223.645-.066 1.385.45 1.9.515.516 1.254.673 1.9.45l2.66-2.66c-.326-.922-.157-1.776.496-2.43.652-.653 1.508-.822 2.43-.496l2.66-2.66c-.223-.646-.067-1.385.45-1.9.515-.515 1.255-.672 1.9-.45l2.76-2.76-.452-2.478c-.303-.603-.182-1.33.323-1.835l9.478-9.478c.604-.604 1.582-.604 2.188 0l9.478 9.478c.604.604.604 1.582 0 2.188z" />
-        </svg>
+      <div className={iconBox} style={{ backgroundColor: "#111827" }} title="GitHub">
+        <FaGithub className="w-7 h-7 text-white" />
       </div>
     );
   }
@@ -105,9 +102,23 @@ function SkillIcon({ iconKey, light }: { iconKey: SkillRow["iconKey"]; light?: b
   if (iconKey === "vscode") {
     return (
       <div className={iconBox} style={{ backgroundColor: "#007ACC" }} title="VS Code">
-        <svg viewBox="0 0 24 24" className="w-full h-full" fill="white" xmlns="http://www.w3.org/2000/svg">
-          <path d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .326 8.74L3.899 12 .326 15.26a1 1 0 0 0 .001 1.479L7.607 21.13a1 1 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352z" />
-        </svg>
+        <FaCode className="w-7 h-7 text-white" />
+      </div>
+    );
+  }
+
+  if (iconKey === "figma") {
+    return (
+      <div className={`${iconBox} border border-black/10 bg-white`} title="Figma">
+        <FaFigma className="w-7 h-7 text-[#0ACF83]" />
+      </div>
+    );
+  }
+
+  if (iconKey === "cursor") {
+    return (
+      <div className={iconBox} style={{ backgroundColor: "#111827" }} title="Cursor">
+        <FaMousePointer className="w-7 h-7 text-white" />
       </div>
     );
   }
