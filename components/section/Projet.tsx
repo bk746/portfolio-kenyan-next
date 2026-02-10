@@ -72,12 +72,13 @@ export default function Projet() {
   return (
     <section
       id="realisations"
-      className="w-full overflow-hidden bg-white md:bg-black scroll-mt-20"
+      className="w-full overflow-hidden bg-white scroll-mt-20 "
       aria-labelledby="projets-heading"
     >
-      <div className="section-inner w-full bg-white px-0 py-16 md:bg-black md:px-12 md:py-24">
+      <div className="w-full h-full bg-[#FAFAFC]">
+      <div className="section-inner w-full bg-white px-0 py-16 md:px-12 md:py-24">
         <header className="section-header px-5 md:px-0">
-          <h2 id="projets-heading" className="section-heading font-semibold text-black md:text-white">
+          <h2 id="projets-heading" className="section-heading font-semibold text-black">
             Réalisation
           </h2>
           <h3 className="section-subheading">Projets sélectionnés</h3>
@@ -136,6 +137,7 @@ export default function Projet() {
             </article>
           ))}
         </div>
+      </div>
       </div>
     </section>
   );
