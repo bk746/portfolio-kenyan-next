@@ -78,6 +78,18 @@ export default function Projet() {
     }
   };
 
+  const handleCardTouchEnd = (e: React.TouchEvent, index: number) => {
+    if (typeof window === "undefined" || window.innerWidth >= 768) return;
+    e.preventDefault();
+    setActiveIndex((current) => (current === index ? null : index));
+  };
+
+  const handleOverlayBackdropClick = () => {
+    if (typeof window !== "undefined" && window.innerWidth < 768) {
+      setActiveIndex(null);
+    }
+  };
+
   return (
     <section
       id="realisations"
@@ -99,7 +111,8 @@ export default function Projet() {
             <article
               key={index}
               onClick={() => handleCardClick(index)}
-              className={`group relative overflow-hidden rounded-none border-0 ${projet.bgClass} min-h-80 sm:min-h-95 md:min-h-105 flex flex-col text-center shadow-lg hover:shadow-2xl transition-all duration-500 ease-out hover:-translate-y-1 focus-within:ring-2 focus-within:ring-[#0073DE] focus-within:ring-offset-4 focus-within:ring-offset-[#F1ECED]`}
+              onTouchEnd={(e) => handleCardTouchEnd(e, index)}
+              className={`group relative overflow-hidden rounded-none border-0 ${projet.bgClass} min-h-80 sm:min-h-95 md:min-h-105 flex flex-col text-center shadow-lg hover:shadow-2xl transition-all duration-500 ease-out hover:-translate-y-1 focus-within:ring-2 focus-within:ring-[#0073DE] focus-within:ring-offset-4 focus-within:ring-offset-[#F1ECED] touch-manipulation`}
             >
               <div className="relative z-10 shrink-0 flex flex-col items-center gap-3 px-0 py-6 text-center sm:p-8">
                 <h4 className="text-lg sm:text-xl font-bold tracking-tight leading-tight text-white">
@@ -134,18 +147,27 @@ export default function Projet() {
               </div>
 
               <div
+                role="presentation"
                 className={`absolute inset-0 flex items-center justify-center bg-linear-to-t from-black/80 via-black/40 to-black/20 transition-opacity duration-300 ${
                   isActive
                     ? "opacity-100 pointer-events-auto"
                     : "opacity-0 pointer-events-none md:group-hover:opacity-100 md:group-hover:pointer-events-auto"
                 }`}
+                onClick={handleOverlayBackdropClick}
+                onTouchEnd={(e) => {
+                  const el = e.target as HTMLElement;
+                  if (!el.closest("a") && !el.closest("button")) {
+                    handleOverlayBackdropClick();
+                  }
+                }}
               >
                 {"lien" in projet && projet.lien ? (
                   <a
                     href={projet.lien}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-[#0073DE] px-6 py-3 font-semibold text-white shadow-xl transition-all duration-200 hover:bg-[#005bb5] active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent sm:px-8 sm:py-3.5 inline-flex items-center justify-center rounded"
+                    onClick={(e) => e.stopPropagation()}
+                    className="bg-[#0073DE] px-6 py-3 font-semibold text-white shadow-xl transition-all duration-200 hover:bg-[#005bb5] active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent sm:px-8 sm:py-3.5 inline-flex items-center justify-center rounded touch-manipulation"
                   >
                     <span className="flex items-center gap-2">
                       Ouvrir
@@ -157,7 +179,8 @@ export default function Projet() {
                 ) : (
                   <button
                     type="button"
-                    className="bg-[#0073DE] px-6 py-3 font-semibold text-white shadow-xl transition-all duration-200 hover:bg-[#005bb5] active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent sm:px-8 sm:py-3.5"
+                    onClick={(e) => e.stopPropagation()}
+                    className="bg-[#0073DE] px-6 py-3 font-semibold text-white shadow-xl transition-all duration-200 hover:bg-[#005bb5] active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent sm:px-8 sm:py-3.5 touch-manipulation"
                   >
                     <span className="flex items-center gap-2">
                       Ouvrir
