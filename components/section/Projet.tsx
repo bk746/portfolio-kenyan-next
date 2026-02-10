@@ -70,6 +70,14 @@ const PROJETS = [
 ] as const;
 
 export default function Projet() {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  const handleCardClick = (index: number) => {
+    if (typeof window !== "undefined" && window.innerWidth < 768) {
+      setActiveIndex((current) => (current === index ? null : index));
+    }
+  };
+
   return (
     <section
       id="realisations"
@@ -85,9 +93,12 @@ export default function Projet() {
           <h3 className="section-subheading">Projets sélectionnés</h3>
         </header>
         <div className="grid w-full grid-cols-1 gap-3 md:grid-cols-2 md:px-0">
-          {PROJETS.map((projet, index) => (
+          {PROJETS.map((projet, index) => {
+            const isActive = activeIndex === index;
+            return (
             <article
               key={index}
+              onClick={() => handleCardClick(index)}
               className={`group relative overflow-hidden rounded-none border-0 ${projet.bgClass} min-h-80 sm:min-h-95 md:min-h-105 flex flex-col text-center shadow-lg hover:shadow-2xl transition-all duration-500 ease-out hover:-translate-y-1 focus-within:ring-2 focus-within:ring-[#0073DE] focus-within:ring-offset-4 focus-within:ring-offset-[#F1ECED]`}
             >
               <div className="relative z-10 shrink-0 flex flex-col items-center gap-3 px-0 py-6 text-center sm:p-8">
@@ -122,7 +133,13 @@ export default function Projet() {
                 />
               </div>
 
-              <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-linear-to-t from-black/80 via-black/40 to-black/20 opacity-0 transition-opacity duration-300 group-hover:pointer-events-auto group-hover:opacity-100">
+              <div
+                className={`absolute inset-0 flex items-center justify-center bg-linear-to-t from-black/80 via-black/40 to-black/20 transition-opacity duration-300 ${
+                  isActive
+                    ? "opacity-100 pointer-events-auto"
+                    : "opacity-0 pointer-events-none md:group-hover:opacity-100 md:group-hover:pointer-events-auto"
+                }`}
+              >
                 {"lien" in projet && projet.lien ? (
                   <a
                     href={projet.lien}
@@ -152,7 +169,7 @@ export default function Projet() {
                 )}
               </div>
             </article>
-          ))}
+          )})}
         </div>
       </div>
       </div>
