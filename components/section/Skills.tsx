@@ -46,7 +46,7 @@ const ICONS: Record<string, SimpleIcon> = {
 
 const LEVEL_COLOR: Record<SkillRow["level"], string> = {
   Avancé: "#0073DE",
-  Intermédiaire: "#ea580c",
+  Intermédiaire: "#006849",
   Débutant: "#0073DE",
 };
 
